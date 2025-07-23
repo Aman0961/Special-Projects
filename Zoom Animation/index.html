@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbox Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            margin: auto;
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .items{
+            flex-basis: 23%;
+            margin: 1%;
+        }
+        .items img{
+            width: 100%;
+            height: 200px;
+        }
+        .overlay{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.5);
+            /* display: none; */
+        }
+        .imgbox{
+            width: 60%;
+            height: 70%;
+            left: 20%;
+            top: 15%;
+            position: fixed;
+            background-color: white;
+            transition: .5s;
+            /* transform: scale(0); */
+        }
+        .imgbox img{
+            width: 100%;
+            height: 100%;
+        }
+        .imgbox span{
+            position: absolute;
+            right: 0;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: red;
+            margin: 15px;
+            padding: 0px 12px;
+        }
+        /* .overlayshow{
+            display: block;
+        }
+        .imgboxshow{
+            transform: scale(1);
+        } */
+    </style>
+</head>
+<body>
+
+    <div class="overlay" onclick="overlayshow()"></div>
+    <div class="imgbox" onclick="imgboxshow()">
+        <span>&times;</span>
+        <img src="/38229.jpg" alt="">
+    </div>
+
+
+    <div class="container" id="gallery">
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+        <div class="items">
+            <img src="/38229.jpg" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    let moverlay = document.querySelector(".overlay");
+    let Mimgbox = document.querySelector(".imgbox");
+    var wimg = document.querySelector(".imgbox img");
+    let close = document.querySelector(".imgbox span");
+
+    let mgallery = document.querySelector('#gallery');
+    mgallery.addEventListener('click', (event)=>{
+        let currentimg = event.target.src;
+        if(currentimg!==undefined0){
+            moverlay.classList.add('overlayshow');
+            Mimgbox.classList.add('imgboxshow');
+            wimg.src=currentimg;
+        }
+    })
+    close.addEventListener("click", ()=>{
+        moverlay.classList.remove('overlayshow');
+        Mimgbox.classList.remove('imgboxshow');
+    })
+</script>
+</html>

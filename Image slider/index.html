@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Special Slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0;
+        }
+        .card{
+            width: 4%;
+            height: 90vh;
+            border-radius: 30px;
+            background: linear-gradient(45deg, blue, hotpink);
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            overflow: hidden;
+            color: white;
+            position: relative;
+            transition: .5s ease-in;
+        }
+        .card h2{
+            font-weight: bold;
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            opacity: 0;
+            font-size: 30px;
+        }
+        .active{
+            width: 80%;
+        }
+        .active h2{
+            opacity: 1;
+            transition: .5s ease-in;
+        }
+        .card:nth-child(1){
+            background: url('/images/1183596.webp');
+        }
+        .card:nth-child(2){
+            background: url('/images/1247131.jpg');
+        }
+        .card:nth-child(3){
+            background: url('/images/1267555.webp');
+        }
+        .card:nth-child(4){
+            background: url('/images/1325486.png');
+        }
+        .card:nth-child(5){
+            background: url('/images/1347180.png');
+        }
+    </style>
+</head>
+<body>
+    <div class="main" style="font-family: Arial, Helvetica, sans-serif;">
+        <div class="card active"><h2>Explore the World !!</h2></div>
+        <div class="card"><h2>High tech AI in the World !!</h2></div>
+        <div class="card"><h2>Game of the World !!</h2></div>
+        <div class="card"><h2>Beautiful sky in the World !!</h2></div>
+        <div class="card"><h2>Art changing the World !!</h2></div>
+    </div>
+</body>
+<script>
+    let cards = document.querySelectorAll('.card');
+    cards.forEach((card)=>{
+        card.addEventListener('click', ()=>{
+            cards.forEach((item)=>{
+                item.classList.remove('active');
+            })
+            card.classList.add('active');
+        })
+    })
+</script>
+</html>

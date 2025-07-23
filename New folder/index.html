@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Lights</title>
+    <link rel="stylesheet" href="script.js">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: url("bg (2).PNG");
+            background-size: cover;
+        }
+        .main{
+            display: table;
+            margin: auto;
+            left: 245px;
+            top: 122px;
+            position: relative;
+        }
+        .light{
+            width: 50px;height: 50px;
+            margin: 7px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            color: whitesmoke;
+            font-weight: bold;
+            line-height: 52.5px;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0px 0px 5px .9px gray, inset 0px 0px 15px .9px black;
+            background: black;
+        }
+        .main2{
+            display: table;
+            left: 1722px;
+            top: 127px;
+            position: absolute;
+        }
+        .light2{
+            width: 35px;
+            height: 35px;
+            margin: 5px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            color: whitesmoke;
+            font-weight: bold;
+            line-height: 52.5px;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0px 0px 5px .9px gray, inset 0px 0px 15px .9px black;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main" onload="tlights()">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>  
+    </div>
+    <div class="main2" onload="trafficlight()">
+        <div class="light2"></div>
+        <div class="light2"></div>
+        <div class="light2"></div>  
+    </div>
+</body>
+<script>
+    var i = 0;
+    var n = 1;
+    let arrColor = ["red", "yellow", "green"];
+    function tlights(){
+        var l = document.getElementsByClassName("light");
+        for(var j = 0; j<l.length; j++){
+            l[j].style.background  = "black";
+            l[j].innerHTML = "";
+        }
+        l[i].style.background  = arrColor[i];
+        if(i<l.length){
+
+            if(n<=3){
+                l[i].innerHTML=n;
+                n++;
+            }
+            if(n==4){
+                i++;
+                n = 1;
+                if(i==3){
+                    i=0;
+                }
+            }
+        }
+    }
+    setInterval(tlights,1500);
+</script>
+</html>

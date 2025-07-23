@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: url('/R.jpeg');
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .main{
+            width: 500px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 1px grey;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        .main form{
+            width: 100%;
+            padding: 60px 30px;
+            position: absolute;
+            top: 0;
+            transition: .5s;
+            margin-top: 30px;
+        }
+        .main form input{
+            width: 100%;
+            padding: 10px 5px;
+            background: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid white;
+            margin: 20px 0;
+            color: white;
+            font-size: 18px;
+        }
+        .btn{
+            display: flex;
+            justify-content: space-evenly;
+           margin-top: 20px;
+        }
+        .btn button{
+            padding: 15px 50px;
+            border-radius: 5px;
+            background: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .form1{
+            left: 0;
+        }
+        .form2, .form3{
+            left: 100%;
+        }
+        .progress{
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            border-bottom: 1px solid whitesmoke;
+            
+        }
+        .progress div{
+            width: 35%;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2;
+            color: black;
+        }
+        .pbar{
+            position: absolute;
+            width: 33%;
+            background: white;
+            height: 100%;
+            z-index: 1;
+            transition: .5s;
+        }
+        .pbar::after{
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            right: -30.1px;
+            border-bottom: 30px solid transparent;
+            border-top: 30px solid transparent;
+            border-left: 30px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form action="" class="form1">
+            <h1>Create Account??</h1>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm Password">
+            <div class="btn">
+                <button onclick="nexToForm2()" type="button">Next</button>
+            </div>
+        </form>
+        <form action="" class="form2">
+            <h1>Personal Details??</h1>
+            <input type="text" placeholder="Display Name">
+            <input type="text" placeholder="E-mail">
+            <input type="number" placeholder="Mobile Number">
+            <div class="btn">
+                <button type="button" onclick="prevsToForm1()">Previous</button>
+                <button type="button" onclick="nexToForm3()">Next</button>
+            </div>
+        </form>
+        <form action="" class="form3">
+            <h1>Social Links</h1>
+            <input type="text" placeholder="Facebook">
+            <input type="text" placeholder="Youtube">
+            <input type="text" placeholder="Instagram">
+            <div class="btn">
+                <button type="button" onclick="prevsToForm2()">Previous</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="progress">
+            <div class="pbar"></div>
+            <div>Step 1</div>
+            <div>Step 2</div>
+            <div>Step 3</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    const mains = document.querySelectorAll('form');
+    let bar = document.querySelector('.pbar');
+    const nexToForm2 = ()=>{
+        mains[0].style.left = '-100%';
+        mains[1].style.left = '0';
+        bar.style.width = '66%';
+    }
+    const prevsToForm1 = ()=>{
+        mains[0].style.left = '0';
+        mains[1].style.left = '100%';
+        bar.style.width = '33%';
+    }
+    const nexToForm3 = ()=>{
+        mains[2].style.left = '0';
+        mains[1].style.left = '-100%';
+        bar.style.width = '100%';
+    }
+    const prevsToForm2 = ()=>{
+        mains[2].style.left = '100%';
+        mains[1].style.left = '0';
+        bar.style.width = '66%';
+    }
+    
+</script>
+</html>
